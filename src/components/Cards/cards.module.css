@@ -1,0 +1,20 @@
+.unorderedList {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Crear columnas de tamaño mínimo de 200px */
+  grid-gap: 20px;
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  .unorderedList {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .item {
+    flex-basis: 50%;
+  }
+}
