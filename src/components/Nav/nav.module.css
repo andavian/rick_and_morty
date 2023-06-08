@@ -11,31 +11,19 @@
   --bg-300: #464646;
 }
 
-.inputGroup {
+.nav {
+  background-color: var(--bg-200);
   display: flex;
-  width: 30%;
+  justify-content: right;
   align-items: center;
   position: relative;
-  padding: 1.5rem;
-  overflow: inherit;
 }
 
-.input {
-  min-height: 50px;
-  min-width: 250px;
-  padding: 0 1rem;
-  color: var(--text-100);
-  font-size: 15px;
-  border: 1px solid var(--accent-200);
-  border-radius: 6px 0 0 6px;
-  background-color: transparent;
-}
-
-.buttonAdd {
+.random {
   min-height: 50px;
   padding: 0.5em 1em;
   border: none;
-  border-radius: 0 6px 6px 0;
+  border-radius: 6px;
   background-color: var(--accent-200);
   color: var(--text-100);
   font-size: 15px;
@@ -44,12 +32,6 @@
   position: relative;
 }
 
-.buttonAdd:hover {
+.random:hover {
   background-color: var(--accent-100);
-}
-
-.input:focus,
-.input:focus-visible {
-  border-color: var(--accent-100);
-  outline: none;
 }

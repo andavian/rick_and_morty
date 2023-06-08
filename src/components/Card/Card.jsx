@@ -11,7 +11,10 @@ export default function Card(props) {
           <img src={props.image} alt="" />
         </div>
         <div className={styles.flipCardBack}>
-          <button className={styles.button} onClick={props.onClose}>
+          <button
+            className={styles.button}
+            onClick={() => props.onClose(props.id)}
+          >
             X
           </button>
           <h2 className={styles.title}>{props.status}</h2>
