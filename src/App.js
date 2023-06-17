@@ -1,11 +1,38 @@
 import "./App.css";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Cards from "./components/Cards/Cards.jsx";
 import Nav from "./components/Nav/Nav.jsx";
 import axios from "axios";
+import { Routes, Route } from "react-router-dom";
+import About from "./vistas/About/About";
+import Detail from "./vistas/Detail/Detail";
+import Error from "./vistas/Error/Error";
+import Landing from "./vistas/Landing/Landing";
+import { useNavigate } from "react-router-dom";
 
 function App() {
+  const navigate = useNavigate();
   const [characters, setCharacters] = useState([]);
+  const [access, setAcces] = useState(false);
+
+  const EMAIL = "ing.elbaum@gmail.com";
+  const PASSWORD = "Ian221209";
+
+  function login(userData) {
+    if (userData.email === EMAIL && userData.password === PASSWORD) {
+      setAcces(true);
+      navigate("/home");
+    }
+  }
+
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access, navigate]);
+
+  function logOut() {
+    setAcces(false);
+    navigate("/");
+  }
 
   function onSearch(id) {
     axios(`https://rickandmortyapi.com/api/character/${id}`)
@@ -19,13 +46,7 @@ function App() {
           setCharacters((characters) => [...characters, data]);
         }
       })
-      .catch((error) => {
-        if (error.response && error.response.status === 404) {
-          window.alert("¡No se encontró el personaje!");
-        } else {
-          window.alert("Ocurrió un error al buscar el personaje.");
-        }
-      });
+      .catch((error) => window.alert(error.response.data.error));
   }
 
   function onClose(id) {
@@ -37,8 +58,17 @@ function App() {
 
   return (
     <div className="App">
-      <Nav onSearch={onSearch} />
-      <Cards characters={characters} onClose={onClose} />
+      <Nav onSearch={onSearch} logOut={logOut} />
+      <Routes>
+        <Route path="/" element={<Landing login={login} />} />
+        <Route
+          path="/home"
+          element={<Cards characters={characters} onClose={onClose} />}
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
     </div>
   );
 }

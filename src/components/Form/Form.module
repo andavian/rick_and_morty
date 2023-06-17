@@ -36,7 +36,7 @@
   transform-style: preserve-3d;
 }
 
-.flipCard:hover .flipCardInner {
+.flipCard #signup_toggle:checked + .flipCardInner {
   transform: rotateY(180deg);
 }
 
@@ -78,7 +78,7 @@
   transform: rotateY(180deg);
 }
 
-.buttonClose {
+.buttonForm {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -99,3 +99,20 @@
   border: 0;
   padding: 0.5rem;
 }
+
+.form .switch {
+  font-size: 13px;
+}
+
+.form .switch .signup_tog {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.flipCard #signup_toggle {
+  display: none;
+}
+
+/*.flipCard #signup_toggle:checked + .form {
+  transform: rotateY(180deg);
+}*/
