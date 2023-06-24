@@ -9,6 +9,7 @@ import Detail from "./vistas/Detail/Detail";
 import Error from "./vistas/Error/Error";
 import Landing from "./vistas/Landing/Landing";
 import { useNavigate } from "react-router-dom";
+import Favorites from "./components/Favorites/Favorites";
 
 function App() {
   const navigate = useNavigate();
@@ -67,6 +68,7 @@ function App() {
         />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/favorites" element={<Favorites onClose={onClose} />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </div>
