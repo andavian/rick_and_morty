@@ -55,7 +55,6 @@ export default function Card(props) {
             X
           </button>
           <h2 className={styles.title}>{props.name}</h2>
-          <h4>{props.gender}</h4>
           <Link to={`/detail/${props.id}`}>
             <p>More Info</p>
           </Link>

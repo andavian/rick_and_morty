@@ -20,7 +20,7 @@
 }
 
 .title {
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 900;
   text-align: center;
   margin: 0rem;
@@ -75,6 +75,8 @@
     var(--primary-100) 78%
   );
   color: var(--text-100);
+  overflow: hidden;
+  text-overflow: scale-down;
   transform: rotateY(180deg);
 }
 

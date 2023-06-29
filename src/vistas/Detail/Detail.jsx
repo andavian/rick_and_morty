@@ -32,18 +32,22 @@ const Detail = () => {
   }
 
   return (
-    <div>
+    <>
       {character && (
-        <div>
-          <h2 className={styles.title}>Name: {character.name}</h2>
-          <h2 className={styles.title}>Status: {character.status}</h2>
-          <h2 className={styles.title}>Specie: {character.species}</h2>
-          <h2 className={styles.title}>Gender: {character.gender}</h2>
-          <h2 className={styles.title}>Origin: {character.origin.name}</h2>
-          <img src={character.image} alt="" />
+        <div className={styles.container}>
+          <div className={styles.texto}>
+            <h2>Name: {character.name}</h2>
+            <h3>Status: {character.status}</h3>
+            <h3>Specie: {character.species}</h3>
+            <h3>Gender: {character.gender}</h3>
+            <h3>Origin: {character.origin.name}</h3>
+          </div>
+          <div className={styles.imagen}>
+            <img className={styles.img} src={character.image} alt="" />
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
