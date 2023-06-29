@@ -1,0 +1,40 @@
+:root {
+  --primary-100: #00ff41;
+  --primary-200: #00df18;
+  --primary-300: #009700;
+  --accent-100: #f700ff;
+  --accent-200: #830091;
+  --text-100: #ffffff;
+  --text-200: #e0e0e0;
+  --bg-100: #1f1f1f;
+  --bg-200: #2e2e2e;
+  --bg-300: #464646;
+}
+
+.container {
+  display: flex;
+}
+
+.title {
+  color: var(--text-100);
+  font-size: 3rem;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.subtitle {
+  color: var(--text-100);
+  font-size: 2rem;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.text {
+  color: var(--text-100);
+  font-size: 1.5rem;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}

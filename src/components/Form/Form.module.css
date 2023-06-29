@@ -1,8 +1,21 @@
+:root {
+  --primary-100: #00ff41;
+  --primary-200: #00df18;
+  --primary-300: #009700;
+  --accent-100: #f700ff;
+  --accent-200: #830091;
+  --text-100: #ffffff;
+  --text-200: #e0e0e0;
+  --bg-100: #1f1f1f;
+  --bg-200: #2e2e2e;
+  --bg-300: #464646;
+}
+
 .form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background: linear-gradient(to right, grey, silver);
+  background: linear-gradient(to right, var(--primary-300), var(--primary-200));
   padding: 40px;
   border-radius: 10px;
 }
@@ -28,16 +41,22 @@
   padding-bottom: 4px;
   font-size: 19px;
   font-weight: bold;
-  color: grey;
+  color: var(--primary-300);
 }
 
 .label {
+  font-size: medium;
+  font-weight: bold;
+  text-align: left;
+  color: var(--text-200);
   margin-top: 20px;
   margin-bottom: 5px;
 }
 
 .btn:hover {
-  box-shadow: 2px 2px 12px white;
+  color: var(--primary-100);
+  background-color: var(--bg-200);
+  box-shadow: 2px 2px 12px var(--primary-100);
 }
 
 .input {
@@ -48,15 +67,11 @@
   border: none;
   font-weight: bold;
   font-size: 15px;
-  box-shadow: 2px 2px 12px inset black;
+  box-shadow: 2px 2px 12px inset var(--bg-200);
 }
 
 .color {
   color: white;
-}
-
-.align {
-  text-align: center;
 }
 
 .errors {

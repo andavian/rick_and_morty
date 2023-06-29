@@ -24,11 +24,11 @@ export default function Nav(props) {
         <button className={styles.random}>About</button>
       </Link>
       <Link to="/favorites">
-        <button className={styles.random}>Favoritos</button>
+        <button className={styles.random}>Favorites</button>
       </Link>
       <SearchBar onSearch={props.onSearch} />
       <button className={styles.random} onClick={handleRandomSearch}>
-        Voy a tener suerte
+        I'll be lucky
       </button>
       <button className={styles.random} onClick={props.logOut}>
         Log Out

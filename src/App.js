@@ -17,7 +17,7 @@ function App() {
   const [access, setAcces] = useState(false);
 
   const EMAIL = "ing.elbaum@gmail.com";
-  const PASSWORD = "Ian221209";
+  const PASSWORD = "Andav2212";
 
   function login(userData) {
     if (userData.email === EMAIL && userData.password === PASSWORD) {

@@ -1,12 +1,13 @@
 import React from "react";
+import styles from "./about.module.css";
 
 const About = () => {
   return (
     <section id="about">
       <div className="container">
-        <h2>Acerca de mí</h2>
-        <p>
-          Soy un ingeniero industrial con una sólida experiencia en gestión de
+        <h2 className={styles.title}>Acerca de mí</h2>
+        <p className={styles.text}>
+          Soy ingeniero industrial con una sólida experiencia en gestión de
           proyectos y una pasión por la programación. Mi enfoque principal es
           utilizar mis habilidades técnicas y mi experiencia en gestión para
           desarrollar soluciones eficientes y escalables. Me he desarrollado en
@@ -16,25 +17,25 @@ const About = () => {
         </p>
         <div className="row">
           <div className="col-md-6">
-            <h3>Habilidades clave</h3>
+            <h3 className={styles.subtitle}>Habilidades clave</h3>
             <ul>
-              <li>Gestión de proyectos</li>
-              <li>Desarrollo full stack</li>
-              <li>Resolución de problemas</li>
-              <li>Comunicación efectiva</li>
+              <li className={styles.text}>Gestión de proyectos</li>
+              <li className={styles.text}>Desarrollo full stack</li>
+              <li className={styles.text}>Resolución de problemas</li>
+              <li className={styles.text}>Comunicación efectiva</li>
             </ul>
           </div>
           <div className="col-md-6">
-            <h3>Experiencia</h3>
-            <p>
-              Ingeniero de Proyectos | Empresa XYZ
+            <h3 className={styles.subtitle}>Experiencia</h3>
+            <p className={styles.text}>
+              Desarrollador Full Stack | Freelancer
               <br />
-              <em>2016 - Presente</em>
+              <em>2022 - Presente</em>
             </p>
-            <p>
-              Desarrollador Full Stack | Empresa ABC
+            <p className={styles.text}>
+              Project Manager | Empresa ANTUIL SAS
               <br />
-              <em>2014 - 2016</em>
+              <em>2019 - Presente</em>
             </p>
           </div>
         </div>

@@ -1,3 +1,16 @@
+:root {
+  --primary-100: #00ff41;
+  --primary-200: #00df18;
+  --primary-300: #009700;
+  --accent-100: #f700ff;
+  --accent-200: #830091;
+  --text-100: #ffffff;
+  --text-200: #e0e0e0;
+  --bg-100: #1f1f1f;
+  --bg-200: #2e2e2e;
+  --bg-300: #464646;
+}
+
 .unorderedList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
@@ -10,4 +23,16 @@
 
 .item {
   grid-column: span 1;
+}
+
+.input {
+  min-height: 30px;
+  min-width: 125px;
+  padding: 1rem;
+  margin: 2rem;
+  color: var(--text-100);
+  font-size: 15px;
+  border: 1px solid var(--accent-200);
+  border-radius: 6px;
+  background-color: var(--bg-200);
 }

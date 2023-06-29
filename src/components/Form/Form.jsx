@@ -27,7 +27,7 @@ export default function Form({ login }) {
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.flex}>
           <div className={`${style.login} ${style.color}`}>Login</div>
-          <label className={style.color}>email :</label>
+          <label className={style.label}>email :</label>
           <input
             name="email"
             type="text"
@@ -36,7 +36,7 @@ export default function Form({ login }) {
             onChange={handleChange}
           />
           <span className={style.errors}>{errors.email}</span>
-          <label className={style.color}>Password :</label>
+          <label className={style.label}>Password :</label>
           <input
             name="password"
             type="text"
