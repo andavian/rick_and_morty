@@ -7,6 +7,7 @@ import styles from "./favorites.module.css";
 export default function Favorites({ onClose }) {
   const [aux, setAux] = useState(false);
   const myFavorites = useSelector((state) => state.myFavorites);
+  const allCharacters = useSelector((state) => state.allCharacters);
   const dispatch = useDispatch();
 
   const handleOrder = (event) => {
@@ -16,7 +17,20 @@ export default function Favorites({ onClose }) {
 
   const handleFilter = (event) => {
     dispatch(filterCards(event.target.value));
+    setAux(true);
   };
+
+  const listAllCharacters = allCharacters.map((character) => (
+    <li className={styles.item} key={character.id}>
+      <Card
+        id={character.id}
+        name={character.name}
+        image={character.image}
+        gender={character.gender}
+        onClose={onClose}
+      />
+    </li>
+  ));
 
   const listFavorites = myFavorites.map((character) => (
     <li className={styles.item} key={character.id}>
@@ -43,7 +57,9 @@ export default function Favorites({ onClose }) {
         <option value="Genderless">Genderless</option>
         <option value="unknown">Unknown</option>
       </select>
-      <ul className={styles.unorderedList}>{listFavorites}</ul>
+      <ul className={styles.unorderedList}>
+        {!aux ? [listAllCharacters] : [listFavorites]}
+      </ul>
     </div>
   );
 }

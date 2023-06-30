@@ -24,15 +24,15 @@ export default function Card(props) {
     props.onClose(props.id);
   };
 
-  const myFavorites = useSelector((state) => state.myFavorites);
+  const allCharacters = useSelector((state) => state.allCharacters);
 
   useEffect(() => {
-    myFavorites.forEach((fav) => {
+    allCharacters.forEach((fav) => {
       if (fav.id === props.id) {
         setIsFav(true);
       }
     });
-  }, [myFavorites, props.id]);
+  }, [allCharacters, props.id]);
 
   return (
     <div className={styles.flipCard}>

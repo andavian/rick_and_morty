@@ -10,6 +10,28 @@
   --bg-200: #2e2e2e;
   --bg-300: #464646;
 }
+.grid {
+  display: grid;
+  grid-template-areas:
+    "head head"
+    "img form "
+    "img form ";
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  column-gap: 0;
+}
+
+.head {
+  grid-area: head;
+}
+
+.container {
+  grid-area: form;
+}
+.portada {
+  grid-area: img;
+  width: auto;
+}
 
 .form {
   display: flex;
@@ -17,7 +39,6 @@
   gap: 10px;
   background: linear-gradient(to right, var(--primary-300), var(--primary-200));
   padding: 40px;
-  border-radius: 10px;
 }
 
 .login {
