@@ -1,18 +1,25 @@
-const http = require("http");
-//const data = require("./utils/data");
-const { getCharById } = require("./controllers/getCharById");
+const express = require('express')
+const router = require('./routes/index')
+const morgan = require('morgan')
+const cors = require('cors')
 
-http
-  .createServer((req, res) => {
-    const { url } = req;
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    if (url === "/hola") {
-      res.writeHead(200, "Content-type: text/plain");
-      res.end("Hola");
-    } else if (url.includes("rickandmorty/character")) {
-      const urlParts = url.trim().split("/");
-      const id = urlParts[urlParts.length - 1];
-      getCharById(res, id);
-    }
-  })
-  .listen(3001, "localhost");
+const server = express()
+const PORT = 3001;
+
+server.use(morgan('dev'))
+server.use(cors())
+
+server.use(express.json())
+
+/*
+request --> morgan --> cors --> express.json() -> ruta ('/rickandmorty')
+  req        req        req
+*/
+
+server.use('/rickandmorty', router)
+
+server.listen(PORT,()=>{
+  console.log(`Server is listening on port: ${PORT}`);
+})
+
+

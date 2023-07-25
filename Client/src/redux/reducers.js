@@ -10,18 +10,15 @@ export default function rootReducer(state = initialState, action) {
     case ADD_FAV:
       return {
         ...state,
-        allCharacters: [...state.allCharacters, action.payload],
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
 
     case REMOVE_FAV:
       return {
         ...state,
-        myFavorites: state.myFavorites.filter(
-          (character) => character.id !== action.payload
-        ),
-        allCharacters: state.allCharacters
-          .map((character) => ({ ...character }))
-          .filter((character) => character.id !== action.payload),
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
 
     case FILTER:

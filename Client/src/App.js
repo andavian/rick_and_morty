@@ -14,15 +14,21 @@ import Favorites from "./components/Favorites/Favorites";
 function App() {
   const navigate = useNavigate();
   const [characters, setCharacters] = useState([]);
-  const [access, setAcces] = useState(false);
+  const [access, setAccess] = useState(false);
 
-  const EMAIL = "ing.elbaum@gmail.com";
-  const PASSWORD = "Andav2212";
-
-  function login(userData) {
-    if (userData.email === EMAIL && userData.password === PASSWORD) {
-      setAcces(true);
-      navigate("/home");
+  async function login(userData) {
+    try {
+      const { email, password } = userData;
+      const URL = "http://localhost:3001/rickandmorty/";
+      const { data } = await axios(
+        `${URL}login?email=${email}&password=${password}`
+      );
+      console.log(data);
+      const { access } = data;
+      setAccess(access);
+      access && navigate("/home");
+    } catch (error) {
+      alert(error.message);
     }
   }
 
@@ -31,24 +37,40 @@ function App() {
   }, [access, navigate]);
 
   function logOut() {
-    setAcces(false);
+    setAccess(false);
     navigate("/");
   }
 
-  function onSearch(id) {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then(({ data }) => {
-        const isCharacterAlreadyAdded = characters.some(
-          (character) => character.id === data.id
-        );
-        if (isCharacterAlreadyAdded) {
-          window.alert("¡El personaje ya ha sido agregado!");
-        } else {
-          setCharacters((characters) => [...characters, data]);
-        }
-      })
-      .catch((error) => window.alert(error.response.data.error));
+  async function onSearch(id) {
+    try {
+      const { data } = await axios(
+        `http://localhost:3001/rickandmorty/character/${id}`
+      );
+      const isCharacterAlreadyAdded = characters.some(
+        (character) => character.id === data.id
+      );
+      if (isCharacterAlreadyAdded) {
+        alert("¡El personaje ya ha sido agregado!");
+      } else {
+        setCharacters((characters) => [...characters, data]);
+      }
+    } catch (error) {
+      alert(error.response.data.error);
+    }
   }
+  //   axios(`http://localhost:3001/rickandmorty/character/${id}`)
+  //     .then(({ data }) => {
+  //       const isCharacterAlreadyAdded = characters.some(
+  //         (character) => character.id === data.id
+  //       );
+  //       if (isCharacterAlreadyAdded) {
+  //         window.alert("¡El personaje ya ha sido agregado!");
+  //       } else {
+  //         setCharacters((characters) => [...characters, data]);
+  //       }
+  //     })
+  //     .catch((error) => window.alert(error.response.data.error));
+  // }
 
   function onClose(id) {
     console.log(id);

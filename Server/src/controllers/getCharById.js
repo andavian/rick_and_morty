@@ -1,26 +1,39 @@
 const axios = require("axios");
 
-const getCharById = (res, id) => {
-  axios(`https://rickandmortyapi.com/api/character/${id}`)
-    .then((response) => {
-      const character = {
-        id: id,
-        name: response.data.name,
-        gender: response.data.gender,
-        species: response.data.species,
-        origin: response.data.origin.name,
-        image: response.data.image,
-        status: response.data.status,
-      };
-      res.writeHead(200, "Content-type: application/json");
-      res.end(JSON.stringify(character));
-    })
-    .catch((error) => {
-      res.writeHead(500, "Content-type: text/plain");
-      res.end(error.message);
-    });
+const URL_BASE = "https://rickandmortyapi.com/api/character/";
+
+const getCharById = async (req, res) => {
+  // const { id } = req.params
+  const id = parseInt(req.params.id);
+  try {
+    const { data } = await axios(`${URL_BASE}${id}`);
+    const { status, name, species, origin, image, gender } = data;
+    const character = {
+      id,
+      status,
+      name,
+      species,
+      origin: origin.name,
+      image,
+      gender,
+    };
+    return character.name
+      ? res.status(200).json(character)
+      : res.status(404).send("Not found");
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+
+  // axios(`${URL_BASE}${id}`)
+  //   .then(({ data }) => {
+  //     const { status, name, species, origin, image, gender } = data;
+
+  //     const character = { id, status, name, species, origin, image, gender };
+
+  //     return character.name
+  //       ? res.status(200).json(character)
+  //       : res.status(404).send("Not found");
+  //   })
 };
 
-module.exports = {
-  getCharById,
-};
+module.exports = getCharById;
