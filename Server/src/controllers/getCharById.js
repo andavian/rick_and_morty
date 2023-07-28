@@ -21,7 +21,9 @@ const getCharById = async (req, res) => {
       ? res.status(200).json(character)
       : res.status(404).send("Not found");
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return res.status(500).json({ error: error.message });
+  } finally {
+    res.end();
   }
 
   // axios(`${URL_BASE}${id}`)
