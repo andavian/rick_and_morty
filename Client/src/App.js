@@ -23,7 +23,7 @@ function App() {
       const { data } = await axios(
         `${URL}login?email=${email}&password=${password}`
       );
-      console.log(data);
+
       const { access } = data;
       setAccess(access);
       access && navigate("/home");
@@ -58,6 +58,29 @@ function App() {
       alert(error.response.data.error);
     }
   }
+
+  async function onSearchByName(charName) {
+    try {
+      const { data } = await axios(
+        `http://localhost:3001/rickandmorty/character?charName=${encodeURIComponent(
+          charName
+        )}}`
+      );
+
+      console.log(data);
+
+      const isCharacterAlreadyAdded = characters.some(
+        (character) => character.id === data.id
+      );
+      if (isCharacterAlreadyAdded) {
+        alert("¡El personaje ya ha sido agregado!");
+      } else {
+        setCharacters((characters) => [...characters, data]);
+      }
+    } catch (error) {
+      alert(error.response.data.error);
+    }
+  }
   //   axios(`http://localhost:3001/rickandmorty/character/${id}`)
   //     .then(({ data }) => {
   //       const isCharacterAlreadyAdded = characters.some(
@@ -73,7 +96,6 @@ function App() {
   // }
 
   function onClose(id) {
-    console.log(id);
     setCharacters((characters) =>
       characters.filter((character) => character.id !== id)
     );
@@ -81,7 +103,11 @@ function App() {
 
   return (
     <div className="App">
-      <Nav onSearch={onSearch} logOut={logOut} />
+      <Nav
+        onSearch={onSearch}
+        onSearchByName={onSearchByName}
+        logOut={logOut}
+      />
       <Routes>
         <Route path="/" element={<Landing login={login} />} />
         <Route

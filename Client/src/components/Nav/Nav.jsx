@@ -26,7 +26,7 @@ export default function Nav(props) {
       <Link to="/favorites">
         <button className={styles.random}>Favorites</button>
       </Link>
-      <SearchBar onSearch={props.onSearch} />
+      <SearchBar onSearchByName={props.onSearchByName} />
       <button className={styles.random} onClick={handleRandomSearch}>
         I'll be lucky
       </button>
