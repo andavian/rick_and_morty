@@ -1,5 +1,6 @@
 import styles from "./searchBar.module.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function SearchBar({ onSearchByName }) {
   const [name, setName] = useState("");
@@ -10,9 +11,14 @@ export default function SearchBar({ onSearchByName }) {
   return (
     <div className={styles.inputGroup}>
       <input type="search" className={styles.input} onChange={handleChange} />
-      <button className={styles.buttonAdd} onClick={() => onSearchByName(name)}>
-        Add
-      </button>
+      <Link to="/home">
+        <button
+          className={styles.buttonAdd}
+          onClick={() => onSearchByName(name)}
+        >
+          Add
+        </button>
+      </Link>
     </div>
   );
 }

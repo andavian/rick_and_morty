@@ -32,6 +32,15 @@ function App() {
     }
   }
 
+  async function register(userData) {
+    try {
+      const URL = "http://localhost:3001/rickandmorty/";
+      await axios.post(`${URL}login`, userData);
+    } catch (error) {
+      alert(error);
+    }
+  }
+
   useEffect(() => {
     !access && navigate("/");
   }, [access, navigate]);
@@ -81,19 +90,6 @@ function App() {
       alert(error.response.data.error);
     }
   }
-  //   axios(`http://localhost:3001/rickandmorty/character/${id}`)
-  //     .then(({ data }) => {
-  //       const isCharacterAlreadyAdded = characters.some(
-  //         (character) => character.id === data.id
-  //       );
-  //       if (isCharacterAlreadyAdded) {
-  //         window.alert("¡El personaje ya ha sido agregado!");
-  //       } else {
-  //         setCharacters((characters) => [...characters, data]);
-  //       }
-  //     })
-  //     .catch((error) => window.alert(error.response.data.error));
-  // }
 
   function onClose(id) {
     setCharacters((characters) =>
@@ -109,7 +105,10 @@ function App() {
         logOut={logOut}
       />
       <Routes>
-        <Route path="/" element={<Landing login={login} />} />
+        <Route
+          path="/"
+          element={<Landing login={login} register={register} />}
+        />
         <Route
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}

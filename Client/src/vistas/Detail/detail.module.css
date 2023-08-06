@@ -40,3 +40,47 @@
     -23px 0 20px -23px rgba(0, 0, 0, 0.8), 23px 0 20px -23px rgba(0, 0, 0, 0.8),
     inset 0 0 40px rgba(0, 0, 0, 0.1);
 }
+
+.buttonFav {
+  position: absolute;
+  top: 220px;
+  right: 170px;
+  align-items: center;
+  background-color: transparent;
+  color: var(--bg-100);
+  cursor: pointer;
+  display: inline-block;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  outline: 0;
+  border: 0;
+  padding: 0.5rem;
+}
+
+.flecha {
+  position: absolute;
+  top: 420px;
+  right: 180px;
+  align-items: center;
+  background-color: transparent;
+  color: var(--text-100);
+  cursor: pointer;
+  display: inline-block;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 3rem;
+
+  outline: 0;
+  border: 0;
+}
+
+.flecha:hover {
+  color: var(--primary-200);
+}

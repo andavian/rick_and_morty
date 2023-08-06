@@ -4,42 +4,51 @@ import { addFav, removeFav } from "../../redux/action.js";
 import { Link } from "react-router-dom";
 import styles from "./card.module.css";
 
-export default function Card(props) {
+export default function Card({
+  id,
+  name,
+  gender,
+  origin,
+  status,
+  image,
+  species,
+  onClose,
+}) {
   const dispatch = useDispatch();
   const [isFav, setIsFav] = useState(false);
+
   const handleFavorite = () => {
     if (isFav) {
       setIsFav(false);
-      dispatch(removeFav(props.id));
-    }
-    if (!isFav) {
+      dispatch(removeFav(id));
+    } else {
       setIsFav(true);
-      dispatch(addFav(props));
+      dispatch(addFav({ id, name, gender, origin, status, image, species }));
     }
   };
 
   const handleClose = () => {
     setIsFav(false);
-    dispatch(removeFav(props.id));
-    props.onClose(props.id);
+    dispatch(removeFav(id));
+    onClose(id);
   };
 
   const allCharacters = useSelector((state) => state.allCharacters);
 
   useEffect(() => {
     allCharacters.forEach((fav) => {
-      if (fav.id === props.id) {
+      if (fav.id === id) {
         setIsFav(true);
       }
     });
-  }, [allCharacters, props.id]);
+  }, [allCharacters, id]);
 
   return (
     <div className={styles.flipCard}>
       <div className={styles.flipCardInner}>
         <div className={styles.flipCardFront}>
           {isFav ? <p className={styles.pFav}>❤️</p> : <></>}
-          <img src={props.image} alt="" />
+          <img src={image} alt="" />
         </div>
         <div className={styles.flipCardBack}>
           {isFav ? (
@@ -54,8 +63,13 @@ export default function Card(props) {
           <button className={styles.buttonClose} onClick={handleClose}>
             X
           </button>
-          <h2 className={styles.title}>{props.name}</h2>
-          <Link to={`/detail/${props.id}`}>
+          <h2 className={styles.title}>{name}</h2>
+          <div style={{ display: "none" }}>{id}</div>
+          <div style={{ display: "none" }}>{status}</div>
+          <div style={{ display: "none" }}>{origin}</div>
+          <div style={{ display: "none" }}>{gender}</div>
+          <div style={{ display: "none" }}>{species}</div>
+          <Link to={`/detail/${id}`}>
             <p>More Info</p>
           </Link>
         </div>
