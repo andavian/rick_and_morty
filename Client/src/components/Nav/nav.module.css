@@ -36,3 +36,7 @@
 .random:hover {
   background-color: var(--accent-100);
 }
+
+.image {
+  border-radius: 50%;
+}

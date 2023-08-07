@@ -30,7 +30,6 @@
 }
 .portada {
   grid-area: img;
-  width: auto;
 }
 
 .form {

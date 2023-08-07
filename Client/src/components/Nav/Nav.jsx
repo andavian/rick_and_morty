@@ -1,6 +1,7 @@
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import styles from "./nav.module.css";
 import { useLocation, Link } from "react-router-dom";
+import logo from "../../img/19.jpeg";
 
 export default function Nav(props) {
   const location = useLocation();
@@ -17,6 +18,9 @@ export default function Nav(props) {
   return (
     <nav className={styles.nav}>
       <Link to="/home">
+        <img src={logo} alt="" height={80} className={styles.image} />
+      </Link>
+      <Link to="/home">
         <button className={styles.random}>Home</button>
       </Link>
       <Link to="/about">
@@ -25,7 +29,10 @@ export default function Nav(props) {
       <Link to="/favorites">
         <button className={styles.random}>Favorites</button>
       </Link>
-      <SearchBar onSearchByName={props.onSearchByName} />
+      <SearchBar
+        onSearchByName={props.onSearchByName}
+        cleanCharacters={props.cleanCharacters}
+      />
       <Link to="/home">
         <button className={styles.random} onClick={handleRandomSearch}>
           I'll be lucky

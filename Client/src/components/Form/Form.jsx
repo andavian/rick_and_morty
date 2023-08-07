@@ -46,7 +46,7 @@ export default function Form({ login, register }) {
       <div>
         <div className={style.grid}>
           <div className={style.head}>
-            <img src={head} alt="" width={550} />
+            <img src={head} alt="" />
           </div>
           <div className={style.portada}>
             <img src={portadaSI} alt="" height={435} />

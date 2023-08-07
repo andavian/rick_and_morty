@@ -3,15 +3,38 @@ const axios = require("axios");
 const URL_BASE = "https://rickandmortyapi.com/api/character/";
 
 const getCharByName = async (req, res) => {
-  // const { id } = req.params
   const { charName } = req.query;
-  try {
-    const { data } = await axios(URL_BASE);
-    const { results } = data;
 
-    const propiedadesPersonajes = results.map((personaje) => {
+  const totalPages = 42;
+  const characters = [];
+
+  try {
+    const fetchCharacterPage = async (page) => {
+      const response = await axios.get(`${URL_BASE}?page=${page}`);
+      return response.data.results;
+    };
+
+    const promises = [];
+    for (let page = 1; page <= totalPages; page++) {
+      promises.push(fetchCharacterPage(page));
+    }
+
+    const pagesData = await Promise.all(promises);
+    pagesData.forEach((pageData) => {
+      characters.push(...pageData);
+    });
+
+    const propiedadesPersonajes = characters.map((personaje) => {
       const { id, name, status, species, gender, origin, image } = personaje;
-      return { id, name, status, species, gender, origin: origin.name, image };
+      return {
+        id,
+        name,
+        status,
+        species,
+        gender,
+        origin: origin.name,
+        image,
+      };
     });
 
     const nameFinding = propiedadesPersonajes.filter((character) =>

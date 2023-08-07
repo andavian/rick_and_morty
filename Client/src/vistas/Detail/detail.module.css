@@ -25,6 +25,7 @@
   box-shadow: 3px 3px 5px 5px var(--primary-100);
   align-items: center;
   justify-content: center;
+  padding-top: 15px;
 }
 
 .imagen {
@@ -43,7 +44,7 @@
 
 .buttonFav {
   position: absolute;
-  top: 220px;
+  top: 240px;
   right: 170px;
   align-items: center;
   background-color: transparent;
@@ -65,8 +66,8 @@
 
 .flecha {
   position: absolute;
-  top: 420px;
-  left: 180px;
+  top: 240px;
+  left: 170px;
   align-items: center;
   background-color: transparent;
   color: var(--text-100);

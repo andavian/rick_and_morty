@@ -77,7 +77,7 @@ function App() {
         )}`
       );
 
-      console.log(data);
+     
 
       const isCharacterAlreadyAdded = characters.some(
         (character) => character.id === data.id
@@ -99,11 +99,16 @@ function App() {
     );
   }
 
+  const cleanCharacters = () => {
+    setCharacters([]);
+  }
+
   return (
     <div className="App">
       <Nav
         onSearch={onSearch}
         onSearchByName={onSearchByName}
+        cleanCharacters={cleanCharacters}
         logOut={logOut}
       />
       <Routes>
