@@ -38,6 +38,7 @@ export default function Form({ login, register }) {
     register(userData);
     alert("Registration successful, thank you very much. You can log in now");
     setUserData({ email: "", password: "" });
+    toggleForm();
   };
 
   if (isRegistering) {

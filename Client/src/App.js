@@ -8,7 +8,6 @@ import About from "./vistas/About/About";
 import Detail from "./vistas/Detail/Detail";
 import Error from "./vistas/Error/Error";
 import Landing from "./vistas/Landing/Landing";
-import Thanks from "./vistas/Thanks/Thanks";
 import { useNavigate } from "react-router-dom";
 import Favorites from "./components/Favorites/Favorites";
 
@@ -56,6 +55,7 @@ function App() {
       const { data } = await axios(
         `http://localhost:3001/rickandmorty/character/${id}`
       );
+      console.log(data);
       const isCharacterAlreadyAdded = characters.some(
         (character) => character.id === data.id
       );
@@ -74,7 +74,7 @@ function App() {
       const { data } = await axios(
         `http://localhost:3001/rickandmorty/character?charName=${encodeURIComponent(
           charName
-        )}}`
+        )}`
       );
 
       console.log(data);
@@ -85,7 +85,8 @@ function App() {
       if (isCharacterAlreadyAdded) {
         alert("¡El personaje ya ha sido agregado!");
       } else {
-        setCharacters((characters) => [...characters, data]);
+        setCharacters((characters) => [...characters, ...data]);
+        console.log("characters", characters);
       }
     } catch (error) {
       alert(error.response.data.error);
@@ -117,7 +118,6 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/favorites" element={<Favorites onClose={onClose} />} />
-        <Route path="/thanks" element={<Thanks />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </div>
