@@ -38,14 +38,32 @@
   flex-direction: column;
   gap: 10px;
   background: linear-gradient(to right, var(--primary-300), var(--primary-200));
-  padding: 40px;
+  padding: 34px;
+}
+
+.formSignUp {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: linear-gradient(to right, var(--accent-200), var(--bg-200));
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
 }
 
 .login {
-  font-size: 25px;
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
+  margin-top: 20px;
+}
+
+.signUp {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2px;
 }
 
 .flex {
@@ -65,6 +83,40 @@
   color: var(--primary-300);
 }
 
+.btnSU {
+  margin-top: 25px;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  border: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 19px;
+  font-weight: bold;
+  color: var(--accent-200);
+}
+
+.btnToggle {
+  margin-bottom: 6px;
+  border-radius: 10px;
+  border: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--primary-300);
+}
+
+.btnToggleSU {
+  margin-bottom: 6px;
+  border-radius: 10px;
+  border: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--accent-200);
+}
+
 .label {
   font-size: medium;
   font-weight: bold;
@@ -80,10 +132,28 @@
   box-shadow: 2px 2px 12px var(--primary-100);
 }
 
+.btnSU:hover {
+  color: var(--accent-100);
+  background-color: var(--bg-200);
+  box-shadow: 2px 2px 12px var(--accent-100);
+}
+
+.btnToggleSU:hover {
+  color: var(--accent-100);
+  background-color: var(--bg-200);
+  box-shadow: 2px 2px 12px var(--accent-100);
+}
+
+.btnToggle:hover {
+  color: var(--primary-100);
+  background-color: var(--bg-200);
+  box-shadow: 2px 2px 12px var(--primary-100);
+}
+
 .input {
-  height: 30px;
+  height: 12px;
   outline: none;
-  padding: 15px;
+  padding: 10px;
   border-radius: 10px;
   border: none;
   font-weight: bold;

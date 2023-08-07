@@ -1,10 +1,14 @@
 import { useState } from "react";
 import validateForm from "./validation";
 import style from "./Form.module.css";
-import portada from "../../img/wallpaperbetter.jpg";
+import portadaSU from "../../img/wallpaperbetter.jpg";
+import portadaSI from "../../img/PortadaSI.jpg";
 import head from "../../img/head.png";
+//import { useNavigate } from "react-router-dom";
 
 export default function Form({ login, register }) {
+  //const navigate = useNavigate();
+
   const [userData, setUserData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
   const [isRegistering, setIsRegistering] = useState(false);
@@ -32,6 +36,8 @@ export default function Form({ login, register }) {
   const handleSubmitRegister = (event) => {
     event.preventDefault();
     register(userData);
+    alert("Registration successful, thank you very much. You can log in now");
+    setUserData({ email: "", password: "" });
   };
 
   if (isRegistering) {
@@ -42,7 +48,7 @@ export default function Form({ login, register }) {
             <img src={head} alt="" width={550} />
           </div>
           <div className={style.portada}>
-            <img src={portada} alt="" height={407} />
+            <img src={portadaSI} alt="" height={435} />
           </div>
           <div className={style.container}>
             <form className={style.form} onSubmit={handleSubmitLogin}>
@@ -69,9 +75,10 @@ export default function Form({ login, register }) {
                 <button className={style.btn} type="submit">
                   Submit
                 </button>
+                <p className={style.color}>Don't have account?</p>
                 <button
                   type="button"
-                  className={style.btn}
+                  className={style.btnToggleSU}
                   onClick={toggleForm}
                 >
                   Register
@@ -91,14 +98,14 @@ export default function Form({ login, register }) {
           <img src={head} alt="" width={550} />
         </div>
         <div className={style.portada}>
-          <img src={portada} alt="" height={407} />
+          <img src={portadaSU} alt="" height={435} />
         </div>
         <div className={style.container}>
-          <form className={style.form} onSubmit={handleSubmitRegister}>
+          <form className={style.formSignUp} onSubmit={handleSubmitRegister}>
             <div className={style.flex}>
-              <div className={`${style.login} ${style.color}`}>
-                <h2>Welcom,</h2>
-                <p>sign up to continue</p>
+              <div className={style.color}>
+                <h2 className={style.signUp}>Welcom,</h2>
+                <span>sign up to continue</span>
               </div>
               <label className={style.label}>email :</label>
               <input
@@ -118,11 +125,16 @@ export default function Form({ login, register }) {
                 onChange={handleChange}
               />
               <span className={style.errors}>{errors.password}</span>
-              <button className={style.btn} type="submit">
-                Let's go!
+              <button className={style.btnSU} type="submit">
+                Let's go ⮕
               </button>
-              <button type="button" className={style.btn} onClick={toggleForm}>
-                Login
+              <p className={style.color}>Have an account?</p>
+              <button
+                type="button"
+                className={style.btnToggle}
+                onClick={toggleForm}
+              >
+                Log in
               </button>
             </div>
           </form>

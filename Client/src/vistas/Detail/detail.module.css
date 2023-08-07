@@ -66,7 +66,7 @@
 .flecha {
   position: absolute;
   top: 420px;
-  right: 180px;
+  left: 180px;
   align-items: center;
   background-color: transparent;
   color: var(--text-100);
@@ -82,5 +82,5 @@
 }
 
 .flecha:hover {
-  color: var(--primary-200);
+  color: var(--accent-100);
 }
