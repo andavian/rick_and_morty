@@ -4,11 +4,8 @@ import style from "./Form.module.css";
 import portadaSU from "../../img/wallpaperbetter.jpg";
 import portadaSI from "../../img/PortadaSI.jpg";
 import head from "../../img/head.png";
-//import { useNavigate } from "react-router-dom";
 
 export default function Form({ login, register }) {
-  //const navigate = useNavigate();
-
   const [userData, setUserData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
   const [isRegistering, setIsRegistering] = useState(false);
@@ -46,7 +43,7 @@ export default function Form({ login, register }) {
       <div>
         <div className={style.grid}>
           <div className={style.head}>
-            <img src={head} alt="" />
+            <img src={head} alt="" width={550} />
           </div>
           <div className={style.portada}>
             <img src={portadaSI} alt="" height={435} />
