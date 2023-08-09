@@ -102,7 +102,7 @@ export default function Form({ login, register }) {
           <form className={style.formSignUp} onSubmit={handleSubmitRegister}>
             <div className={style.flex}>
               <div className={style.color}>
-                <h2 className={style.signUp}>Welcom,</h2>
+                <h2 className={style.signUp}>Welcome,</h2>
                 <span>sign up to continue</span>
               </div>
               <label className={style.label}>email :</label>
