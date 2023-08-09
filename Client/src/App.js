@@ -22,7 +22,7 @@ function App() {
   async function login(userData) {
     try {
       const { email, password } = userData;
-      const URL = "http://localhost:3001/rickandmorty/";
+      const URL = "rickandmorty/";
       const { data } = await axios(
         `${URL}login?email=${email}&password=${password}`
       );
@@ -37,7 +37,7 @@ function App() {
 
   async function register(userData) {
     try {
-      const URL = "http://localhost:3001/rickandmorty/";
+      const URL = "rickandmorty/";
       await axios.post(`${URL}login`, userData);
     } catch (error) {
       alert(error);

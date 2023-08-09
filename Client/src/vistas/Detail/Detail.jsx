@@ -39,7 +39,6 @@ const Detail = () => {
 
   useEffect(() => {
     console.log("IsFav Value:", isFav, allCharacters);
-    //const fav = allCharacters.some((char) => char.id === id);
 
     if (findCharacter) {
       setIsFav(true);
