@@ -4,6 +4,7 @@ export const ADD_FAV = "ADD_FAV";
 export const REMOVE_FAV = "REMOVE_FAV";
 export const FILTER = "FILTER";
 export const ORDER = "ORDER";
+export const CLEAR = "CLEAR";
 
 export function addFav(character) {
   const endpoint = "http://localhost:3001/rickandmorty/fav";
@@ -19,14 +20,7 @@ export function addFav(character) {
     }
   };
 }
-//     axios.post(endpoint, character).then(({ data }) => {
-//       return dispatch({
-//         type: "ADD_FAV",
-//         payload: data,
-//       });
-//     });
-//   };
-// }
+
 
 export function removeFav(id) {
   const endpoint = "http://localhost:3001/rickandmorty/fav/" + id;
@@ -40,13 +34,7 @@ export function removeFav(id) {
     } catch (error) {
       alert(error.message);
     }
-    //   axios.delete(endpoint).then(({ data }) => {
-    //     return dispatch({
-    //       type: "REMOVE_FAV",
-    //       payload: data,
-    //     });
-    //   });
-    // };
+   
   };
 }
 
@@ -63,3 +51,11 @@ export function orderCards(order) {
     payload: order,
   };
 }
+
+  export function clear() {
+    return {
+      type: CLEAR,
+    
+    };
+  }
+

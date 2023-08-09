@@ -25,17 +25,6 @@ const getCharById = async (req, res) => {
   } finally {
     res.end();
   }
-
-  // axios(`${URL_BASE}${id}`)
-  //   .then(({ data }) => {
-  //     const { status, name, species, origin, image, gender } = data;
-
-  //     const character = { id, status, name, species, origin, image, gender };
-
-  //     return character.name
-  //       ? res.status(200).json(character)
-  //       : res.status(404).send("Not found");
-  //   })
 };
 
 module.exports = getCharById;

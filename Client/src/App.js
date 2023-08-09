@@ -9,12 +9,15 @@ import Detail from "./vistas/Detail/Detail";
 import Error from "./vistas/Error/Error";
 import Landing from "./vistas/Landing/Landing";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { clear } from "./redux/action";
 import Favorites from "./components/Favorites/Favorites";
 
 function App() {
   const navigate = useNavigate();
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
+  const dispatch = useDispatch();
 
   async function login(userData) {
     try {
@@ -48,6 +51,8 @@ function App() {
   function logOut() {
     setAccess(false);
     navigate("/");
+    setCharacters([]);
+    dispatch(clear());
   }
 
   async function onSearch(id) {
@@ -77,8 +82,6 @@ function App() {
         )}`
       );
 
-     
-
       const isCharacterAlreadyAdded = characters.some(
         (character) => character.id === data.id
       );
@@ -101,7 +104,7 @@ function App() {
 
   const cleanCharacters = () => {
     setCharacters([]);
-  }
+  };
 
   return (
     <div className="App">

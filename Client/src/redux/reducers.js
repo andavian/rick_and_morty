@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./action";
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, CLEAR } from "./action";
 
 const initialState = {
   myFavorites: [],
@@ -49,6 +49,8 @@ export default function rootReducer(state = initialState, action) {
           ...state,
         };
       }
+    case CLEAR:
+      return initialState;
 
     default:
       return { ...state };

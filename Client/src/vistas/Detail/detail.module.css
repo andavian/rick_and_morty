@@ -25,7 +25,7 @@
   box-shadow: 3px 3px 5px 5px var(--primary-100);
   align-items: center;
   justify-content: center;
-  padding-top: 15px;
+  padding: 25px;
 }
 
 .imagen {
