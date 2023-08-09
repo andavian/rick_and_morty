@@ -57,9 +57,7 @@ function App() {
 
   async function onSearch(id) {
     try {
-      const { data } = await axios(
-        `http://localhost:3001/rickandmorty/character/${id}`
-      );
+      const { data } = await axios(`rickandmorty/character/${id}`);
       console.log(data);
       const isCharacterAlreadyAdded = characters.some(
         (character) => character.id === data.id
@@ -77,9 +75,7 @@ function App() {
   async function onSearchByName(charName) {
     try {
       const { data } = await axios(
-        `http://localhost:3001/rickandmorty/character?charName=${encodeURIComponent(
-          charName
-        )}`
+        `rickandmorty/character?charName=${encodeURIComponent(charName)}`
       );
 
       const isCharacterAlreadyAdded = characters.some(

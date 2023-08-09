@@ -7,7 +7,7 @@ export const ORDER = "ORDER";
 export const CLEAR = "CLEAR";
 
 export function addFav(character) {
-  const endpoint = "http://localhost:3001/rickandmorty/fav";
+  const endpoint = "rickandmorty/fav";
   return async (dispatch) => {
     try {
       const { data } = await axios.post(endpoint, character);
@@ -21,9 +21,8 @@ export function addFav(character) {
   };
 }
 
-
 export function removeFav(id) {
-  const endpoint = "http://localhost:3001/rickandmorty/fav/" + id;
+  const endpoint = "rickandmorty/fav/" + id;
   return async (dispatch) => {
     try {
       const { data } = await axios.delete(endpoint);
@@ -34,7 +33,6 @@ export function removeFav(id) {
     } catch (error) {
       alert(error.message);
     }
-   
   };
 }
 
@@ -52,10 +50,8 @@ export function orderCards(order) {
   };
 }
 
-  export function clear() {
-    return {
-      type: CLEAR,
-    
-    };
-  }
-
+export function clear() {
+  return {
+    type: CLEAR,
+  };
+}
